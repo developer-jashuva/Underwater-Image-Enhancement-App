@@ -18,15 +18,22 @@ def enhance_image(image):
     color_corrected = cv2.cvtColor(enhanced_lab, cv2.COLOR_LAB2BGR)
 
     # Apply White Balancing
-    wb = cv2.xphoto.createSimpleWB()
-    wb.setP(0.5)  
-    balanced = wb.balanceWhite(color_corrected)
+  
+    # Apply White Balancing using manual method
+    balanced = simple_white_balance(color_corrected)
+
 
     # Apply Noise Reduction
     final_image = cv2.fastNlMeansDenoisingColored(balanced, None, 7, 7, 5, 15)
 
     return final_image
-
+  def simple_white_balance(image):
+    result = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+    l, a, b = cv2.split(result)
+    l = cv2.equalizeHist(l)  # Apply histogram equalization
+    result = cv2.merge((l, a, b))
+    return cv2.cvtColor(result, cv2.COLOR_LAB2BGR)
+ 
 # Streamlit UI
 st.title("🌊 Underwater Image Enhancement App")
 st.write("Upload an underwater image, and the AI will enhance its clarity!")
