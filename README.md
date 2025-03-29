@@ -64,7 +64,7 @@ The app will open in your browser. 🎯
 
 📌 Sample Results
 
-Original Image Enhanced Image
+[Original Image](https://github.com/developer-jashuva/Underwater-Image-Enhancement-App/blob/main/underwaterSpec.jpg)  [Enhanced Image](https://github.com/developer-jashuva/Underwater-Image-Enhancement-App/blob/main/enhanced-underwater.jpg)
 
 📌 Contributing
 
