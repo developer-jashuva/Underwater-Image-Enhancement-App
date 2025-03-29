@@ -27,7 +27,7 @@ def enhance_image(image):
     final_image = cv2.fastNlMeansDenoisingColored(balanced, None, 7, 7, 5, 15)
 
     return final_image
-  def simple_white_balance(image):
+def simple_white_balance(image):
     result = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
     l, a, b = cv2.split(result)
     l = cv2.equalizeHist(l)  # Apply histogram equalization
